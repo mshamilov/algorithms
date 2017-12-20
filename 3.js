@@ -1,26 +1,3 @@
-// 5 2 1
-
-// 2 + 1 - 1 = 2 - 5 
-
-// 0
-
-// 20 800 1 = 
-// 20 40 1 = 20
-// 20 40 2 = 1
-
-// 34 - 
-
-// ---------------
-// 17 5 15
-
-// 15 + 5 - 1 = 19 > 17
-
-// 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 
-
-var str = "1 \n20 805 1";
-console.log(str);
-processData(str);
-
 function processData(input) {
     //Enter your code here
     var data = input.split('\n');

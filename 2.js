@@ -1,15 +1,3 @@
-// hackerhappy
-// hackerrank
-// 9
-// -------
-// YES
-
-// aba
-// aba
-// 7
-// ------
-// YES
-
 var str = "h\nh\n9";
 console.log(str);
 processData(str);
