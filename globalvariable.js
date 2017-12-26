@@ -1,9 +1,9 @@
 (function (globalVariable) {
 
-  var privateFunction = function() {
+  var privateFunction = function () {
     console.log('Shhhh, this is private!');
   }
-  globalVariable.each = function(collection, iterator) {
+  globalVariable.each = function (collection, iterator) {
     if (Array.isArray(collection)) {
       for (var i = 0; i < collection.length; i++) {
         iterator(collection[i], i, collection);
@@ -14,27 +14,27 @@
       }
     }
   };
-  globalVariable.filter = function(collection, test) {
+  globalVariable.filter = function (collection, test) {
     var filtered = [];
-    globalVariable.each(collection, function(item) {
+    globalVariable.each(collection, function (item) {
       if (test(item)) {
         filtered.push(item);
       }
     });
     return filtered;
   };
-  globalVariable.map = function(collection, iterator) {
+  globalVariable.map = function (collection, iterator) {
     var mapped = [];
-    globalUtils.each(collection, function(value, key, collection) {
+    globalUtils.each(collection, function (value, key, collection) {
       mapped.push(iterator(value));
     });
     return mapped;
   };
-  globalVariable.reduce = function(collection, iterator, accumulator) {
+  globalVariable.reduce = function (collection, iterator, accumulator) {
     var startingValueMissing = accumulator === undefined;
 
-    globalVariable.each(collection, function(item) {
-      if(startingValueMissing) {
+    globalVariable.each(collection, function (item) {
+      if (startingValueMissing) {
         accumulator = item;
         startingValueMissing = false;
       } else {
@@ -44,4 +44,4 @@
     return accumulator;
   };
 
- }(globalVariable));
+}(globalVariable));
