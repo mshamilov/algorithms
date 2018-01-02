@@ -91,8 +91,12 @@ function drawLine(mystate, ctx) {
 
 var t = 0;
 
-const noiseGen = new FastSimplexNoise(
-  { frequency: 0.5, max: height, min: height / 2, octaves: 1 });
+const noiseGen = new FastSimplexNoise({
+  frequency: 0.5,
+  max: height,
+  min: height / 2,
+  octaves: 1
+});
 
 function render() {
   t++;
@@ -108,4 +112,3 @@ function render() {
 
 }
 render();
-

@@ -9,10 +9,16 @@ function processData(input) {
   let k = input.split('\n')[2];
 
   var startCount = s.length - 1;
-  if (s == t) { console.log('Yes'); return; }
+  if (s == t) {
+    console.log('Yes');
+    return;
+  }
 
   for (var i = 0; i < s.length; i++) {
-    if (s[i] != t[i]) { startCount = i; break; }
+    if (s[i] != t[i]) {
+      startCount = i;
+      break;
+    }
   }
   var del = s.length - startCount;
   var append = t.length - startCount;
