@@ -182,19 +182,19 @@ export let scrollDetector = {
   //
   animationSteps: {
     step1: function () { // Hidin' hero screen , show video
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step1',
         ease: Power2.easeOut
       });
       // Hidin' hero
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   currentStep = 1;
       // })
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   scrollDetector.removeActiveNav();
       //   sideNavButton[0].classList.add('active');
       // })
-      tl
+     TimeLine
         .add("hero")
         .fromTo("#call-us", .3, { alpha: 1 }, { alpha: 0 }, "hero")
         .staggerFromTo("#hero .letters-father .text-line .letter", .1, { alpha: 1 }, { alpha: 0 }, .01, "hero") // disapear hero tie
@@ -221,319 +221,312 @@ export let scrollDetector = {
             };
           }
         })
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   bgVideo.play();
       // });
-      tl.add(function () { videoForward = false });
+     TimeLine.add(function () { videoForward = false });
 
 
 
 
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   scrollDetector.removeActiveNav();
       //   sideNavButton[0].classList.add('active');
       // });
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   currentStep = 1;
       //   console.log('1 end  ')
       // })
-      return tl;
+      returnTimeLine;
     },
     step2: function () { // Hide video , scroll to about screen
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step2',
         ease: Power2.easeOut
       });
       // stop video
       // play animation of apearance of horizontal screen
-      tl.add(function (params) {
+     TimeLine.add(function (params) {
         if (videoForward == true) {
           bgVideo.pause();
           bgVideo.onended = function () {
           };
         }
       })
-      tl.to(scrollBody, playSpeed, { yPercent: -20 }, easeFunc)
-      // tl.to(scrollBody, playSpeed, { 'transform': 'translateY(-100vh)' }, easeFunc)
-      tl.add(function () {
+     TimeLine.to(scrollBody, playSpeed, { yPercent: -20 }, easeFunc)
+      //TimeLine.to(scrollBody, playSpeed, { 'transform': 'translateY(-100vh)' }, easeFunc)
+     TimeLine.add(function () {
         currentStep = 1;
         scrollDetector.removeActiveNav();
         sideNavButton[0].classList.add('active');
       })
-      tl.add("horizont-l-title")
-      // tl.fromTo("#horizontal_section-left .title-cont-bg .line-bg", .2, { 'transform': 'translateX(-100vw)' }, { 'transform': 'translateX(0)' }, "horizont-l-title")
-      tl.fromTo("#horizontal_section-left .section-bg", .2, { alpha: 0 }, { alpha: 1 }, '-=.6')  // animage bg image
-      tl.fromTo("#horizontal_section-left .section-bg", .6, { y: -200 }, { y: 0 }, '-=.5') // animage bg image
-      tl.fromTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }, { alpha: 1 })
-      tl.to("#call-us", .3, { alpha: 1 }, '-=.5')
-      tl.staggerFromTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .3, { x: -100 }, { x: 0 })
-      tl.fromTo("#horizontal_section-left .gradient-title_cont", .4, { alpha: 0 }, { alpha: 1 }, "-=.3")
-      tl.to('#side-navigation', .6, { fill: '#939598', stroke: '#939598', color: "#939598" }, "-=.3") // change navigation color
-      // tl.staggerFromTo("#horizontal_section-left .title-cont .line span", .3, { backgroundColor: '#fff' }, { backgroundColor: 'transparent' }, 0.05, '-=0.6')
+     TimeLine.add("horizont-l-title")
+      //TimeLine.fromTo("#horizontal_section-left .title-cont-bg .line-bg", .2, { 'transform': 'translateX(-100vw)' }, { 'transform': 'translateX(0)' }, "horizont-l-title")
+     TimeLine.fromTo("#horizontal_section-left .section-bg", .2, { alpha: 0 }, { alpha: 1 }, '-=.6')  // animage bg image
+     TimeLine.fromTo("#horizontal_section-left .section-bg", .6, { y: -200 }, { y: 0 }, '-=.5') // animage bg image
+     TimeLine.fromTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }, { alpha: 1 })
+     TimeLine.to("#call-us", .3, { alpha: 1 }, '-=.5')
+     TimeLine.staggerFromTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .3, { x: -100 }, { x: 0 })
+     TimeLine.fromTo("#horizontal_section-left .gradient-title_cont", .4, { alpha: 0 }, { alpha: 1 }, "-=.3")
+     TimeLine.to('#side-navigation', .6, { fill: '#939598', stroke: '#939598', color: "#939598" }, "-=.3") // change navigation color
+      //TimeLine.staggerFromTo("#horizontal_section-left .title-cont .line span", .3, { backgroundColor: '#fff' }, { backgroundColor: 'transparent' }, 0.05, '-=0.6')
       // .add("left-horizontal")
       // .fromTo('#horizontal_section-left .info-item_title', .6, { alpha: 0, y: 120 }, { alpha: 1, y: 0 }, "left-horizontal")
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 2;
         scrollDetector.removeActiveNav();
         sideNavButton[1].classList.add('active');
       })
-      tl.fromTo('#horizontal_section-left .info-item_txt', .6, { alpha: 0, y: 120 }, { alpha: 1, y: 0 }, "left-horizontal")
-      return tl;
+     TimeLine.fromTo('#horizontal_section-left .info-item_txt', .6, { alpha: 0, y: 120 }, { alpha: 1, y: 0 }, "left-horizontal")
+      returnTimeLine;
     },
     step3: function () { // animate horizontal scroll
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step3',
         ease: Power2.easeOut
       });
       // clear text after typing
-      tl.add(function () {
+     TimeLine.add(function () {
         text1.clear();
       })
-      tl.add("slide-from-start")
+     TimeLine.add("slide-from-start")
       // hide about screen content
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 2;
         scrollDetector.removeActiveNav();
         sideNavButton[1].classList.add('active');
       })
-      tl.to('#horizontal_section-left .info-item_txt', .6, { alpha: 0 }, "slide-from-start") // apear text
-      tl.staggerTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .3, { x: -100 }) // title backgroun disapear
-      tl.to("#horizontal_section-left .gradient-title_cont", .4, { alpha: 0 }, "-=.3")  // title animation
-      tl.to("#horizontal_section-left .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }) // title backgroun disapear
+     TimeLine.to('#horizontal_section-left .info-item_txt', .6, { alpha: 0 }, "slide-from-start") // apear text
+     TimeLine.staggerTo("#horizontal_section-left .gradient-title_cont-bg .line-bg", .3, { x: -100 }) // title backgroun disapear
+     TimeLine.to("#horizontal_section-left .gradient-title_cont", .4, { alpha: 0 }, "-=.3")  // title animation
+     TimeLine.to("#horizontal_section-left .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }) // title backgroun disapear
       //
-      tl.to('#side-navigation', .6, { fill: 'transparent', stroke: 'transparent', color: "transparent" }, "-=.3") // change navigation color
+     TimeLine.to('#side-navigation', .6, { fill: 'transparent', stroke: 'transparent', color: "transparent" }, "-=.3") // change navigation color
       //
-      tl.fromTo(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", 1, { x: '50%' }, { x: '0%' }, "slide-from-start")
-      tl.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'none' }, "slide-from-start")
-      tl.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'block' }, "slide-from-start")
-      tl.to(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", 1, { 'alpha': '1' }, "slide-from-start")
-      tl.fromTo(horizontalScreen, 1, { x: '0%' }, { x: '-25%' }, "slide-from-start")
+     TimeLine.fromTo(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", 1, { x: '50%' }, { x: '0%' }, "slide-from-start")
+     TimeLine.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'none' }, "slide-from-start")
+     TimeLine.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'block' }, "slide-from-start")
+     TimeLine.to(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", 1, { 'alpha': '1' }, "slide-from-start")
+     TimeLine.fromTo(horizontalScreen, 1, { x: '0%' }, { x: '-25%' }, "slide-from-start")
       //
-      tl.add("start");
-      tl.add(function () { text1.animate(); }, "start")  // typing text
-      tl.to(".horizontal-screen .mask-animate", 2, { alpha: 1 }, "start")
+     TimeLine.add("start");
+     TimeLine.add(function () { text1.animate(); }, "start")  // typing text
+     TimeLine.to(".horizontal-screen .mask-animate", 2, { alpha: 1 }, "start")
       //
-      tl.add("slide-from-center")
-      tl.to(".horizontal-screen .mask-animate", 1, { x: '-50%' }, "slide-from-center") // animate mask
-      tl.to(".horizontal-screen .mask-animate", 1, { alpha: 0 }, "slide-from-center") // animate mask
-      tl.add(function () {
+     TimeLine.add("slide-from-center")
+     TimeLine.to(".horizontal-screen .mask-animate", 1, { x: '-50%' }, "slide-from-center") // animate mask
+     TimeLine.to(".horizontal-screen .mask-animate", 1, { alpha: 0 }, "slide-from-center") // animate mask
+     TimeLine.add(function () {
         $("#burger,#call-us").toggleClass('grey');
       }, "slide-from-center")
       //
-      tl.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'block' }, "slide-from-center+=0.9") // mask content hide
-      tl.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'none' }, "slide-from-center+=1") // mask content hide
+     TimeLine.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'block' }, "slide-from-center+=0.9") // mask content hide
+     TimeLine.set(".horizontal-screen .mask-animate, .horizontal-screen .mask_content", { 'display': 'none' }, "slide-from-center+=1") // mask content hide
       // // clear text after typing
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   let spans = document.getElementById('mask_content_wrapper').getElementsByTagName('span');
       //   [].forEach.call(spans, (elem) => {
       //     elem.classList.remove('is-visible');
       //   })
       // })
       // end horizontal scroll
-      tl.to(horizontalScreen, 1, { x: '-50%' }, "slide-from-center")
+     TimeLine.to(horizontalScreen, 1, { x: '-50%' }, "slide-from-center")
       // call us fade out
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 3;
         scrollDetector.removeActiveNav();
         sideNavButton[2].classList.add('active');
       })
-      tl.add("horiz-r-texts", "-=1") // label for capabilities screen
-      tl.to('#side-navigation', .6, { fill: '#fff', stroke: '#fff', color: "#fff" }, "-=.6") // change navigation color
-      tl.staggerFromTo('#horizontal_section-right .tab', .6, { alpha: 0 }, { alpha: 1 }, .1, "horiz-r-texts") // animate tabs
-      // tl.fromTo('#horizontal_section-right .info-item_image', .6,
+     TimeLine.add("horiz-r-texts", "-=1") // label for capabilities screen
+     TimeLine.to('#side-navigation', .6, { fill: '#fff', stroke: '#fff', color: "#fff" }, "-=.6") // change navigation color
+     TimeLine.staggerFromTo('#horizontal_section-right .tab', .6, { alpha: 0 }, { alpha: 1 }, .1, "horiz-r-texts") // animate tabs
+      //TimeLine.fromTo('#horizontal_section-right .info-item_image', .6,
       //   { alpha: 0, y: 50, height: 200 },
       //   { alpha: 1, y: 0, height: 330 },
       //   "horiz-r-texts"
       // ) // animate image appear
-      // tl.fromTo('#horizontal_section-right .info-item_title', .6, { alpha: 0, y: -50 }, { alpha: 1, y: 0 }, "horiz-r-texts")// animate text part
-      // tl.fromTo('#horizontal_section-right .info-item_txt', .6, { alpha: 0, y: 50 }, { alpha: 1, y: 0 }, "horiz-r-texts") // animate text part
-      // tl.fromTo('#horizontal_section-right .btn', .6, { alpha: 0 }, { alpha: .5 }, "horiz-r-texts") // button animation
-      // tl.add("horizontal-btn")
-      // tl.to('#horizontal_section-right .btn', .3, { alpha: 1 }, "horizontal-btn") // button animation
-      // tl.from('#horizontal_section-right .btn', .3, { y: 25 }, "horizontal-btn") // button animation
+      //TimeLine.fromTo('#horizontal_section-right .info-item_title', .6, { alpha: 0, y: -50 }, { alpha: 1, y: 0 }, "horiz-r-texts")// animate text part
+      //TimeLine.fromTo('#horizontal_section-right .info-item_txt', .6, { alpha: 0, y: 50 }, { alpha: 1, y: 0 }, "horiz-r-texts") // animate text part
+      //TimeLine.fromTo('#horizontal_section-right .btn', .6, { alpha: 0 }, { alpha: .5 }, "horiz-r-texts") // button animation
+      //TimeLine.add("horizontal-btn")
+      //TimeLine.to('#horizontal_section-right .btn', .3, { alpha: 1 }, "horizontal-btn") // button animation
+      //TimeLine.from('#horizontal_section-right .btn', .3, { y: 25 }, "horizontal-btn") // button animation
       // call us fade in
-      return tl;
+      returnTimeLine;
     },
     step4: function () { // animate apperance of works
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step4',
         ease: Power2.easeOut
       });
-      tl.add("scroll-to-works")
-      tl.fromTo('#horizontal_section-right .tabs_container', 1, { y: 0 }, { y: 150 }, "scroll-to-works") // paralax text effect
-      tl.add(function () {
+     TimeLine.add("scroll-to-works")
+     TimeLine.fromTo('#horizontal_section-right .tabs_container', 1, { y: 0 }, { y: 150 }, "scroll-to-works") // paralax text effect
+     TimeLine.add(function () {
         currentStep = 3;
         scrollDetector.removeActiveNav();
         sideNavButton[2].classList.add('active');
       })
-      tl.to(scrollBody, playSpeed, { yPercent: -40 }, "scroll-to-works") // scroll screen to works
+     TimeLine.to(scrollBody, playSpeed, { yPercent: -40 }, "scroll-to-works") // scroll screen to works
 
-      tl.set("#works .typing-our-works", { 'display': 'block' })
-      tl.add("typing")
+     TimeLine.set("#works .typing-our-works", { 'display': 'block' })
+     TimeLine.add("typing")
 
-      tl.add(function () {
+     TimeLine.add(function () {
         $("#burger,#call-us").toggleClass('grey');
         text2.clear();
         text2.animate();
-        // tl.set({}, {}, "+=4");
+        //TimeLine.set({}, {}, "+=4");
         // this.pause();
       })
-      // tl.addPause()
-      tl.to('#works .works-preview_img', 0.8, { scale: 1 }, "+=0.6"); // apear of works preview
-      tl.to('#our-work-typing h3', 0.8, { alpha: 0.6 }, "-=1")
-      // tl.to('#works .works-preview', .3, { alpha: 0 });
-      tl.set('#works .works-preview', { display: 'none' });
+      //TimeLine.addPause()
+     TimeLine.to('#works .works-preview_img', 0.8, { scale: 1 }, "+=0.6"); // apear of works preview
+     TimeLine.to('#our-work-typing h3', 0.8, { alpha: 0.6 }, "-=1")
+      //TimeLine.to('#works .works-preview', .3, { alpha: 0 });
+     TimeLine.set('#works .works-preview', { display: 'none' });
 
-      // tl.from(".work-slider", 1, { scaleX: 0.8, scaleY: 0.8 });
+      //TimeLine.from(".work-slider", 1, { scaleX: 0.8, scaleY: 0.8 });
 
 
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 4;
         scrollDetector.removeActiveNav();
         sideNavButton[3].classList.add('active');
       })
-      tl.add("reveal-work")
+     TimeLine.add("reveal-work")
 
 
-      tl.to("#works #our-work-typing", 1, { alpha: 0 }, "reveal-work")
-      tl.set("#works .typing-our-works", { 'display': 'block' }, "reveal-work+=1")
-      tl.set("#works .typing-our-works", { 'display': 'none' }, "reveal-work+=1")
+     TimeLine.to("#works #our-work-typing", 1, { alpha: 0 }, "reveal-work")
+     TimeLine.set("#works .typing-our-works", { 'display': 'block' }, "reveal-work+=1")
+     TimeLine.set("#works .typing-our-works", { 'display': 'none' }, "reveal-work+=1")
 
-      tl.fromTo('#works .pretitle', .4, { alpha: 0 }, { alpha: 1 }, "reveal-work") // works slider title apear
-      tl.staggerFromTo('#works .pretitle .letter', .4, { alpha: 0 }, { alpha: 1 }, 0) // works slider title apear
-      tl.fromTo('#works .title', .4, { alpha: 0 }, { alpha: 1 }, "-=.2") // works slider title apear
-      tl.fromTo('#works .subtitle', .4, { alpha: 0 }, { alpha: 1 }, "-=.2") // works slider title apear
-      tl.fromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "-=.2") // animate only buttons on first screen
+     TimeLine.fromTo('#works .pretitle', .4, { alpha: 0 }, { alpha: 1 }, "reveal-work") // works slider title apear
+     TimeLine.staggerFromTo('#works .pretitle .letter', .4, { alpha: 0 }, { alpha: 1 }, 0) // works slider title apear
+     TimeLine.fromTo('#works .title', .4, { alpha: 0 }, { alpha: 1 }, "-=.2") // works slider title apear
+     TimeLine.fromTo('#works .subtitle', .4, { alpha: 0 }, { alpha: 1 }, "-=.2") // works slider title apear
+     TimeLine.fromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "-=.2") // animate only buttons on first screen
 
-      tl.add(function () {
+     TimeLine.add(function () {
         text2.clear();
       })
-      // tl.add(function () {
+      //TimeLine.add(function () {
       //   scrollDetector.removeActiveNav();
       //   sideNavButton[3].classList.add('active');
       // })
-      // tl.staggerFromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "+=.5") // animate only buttons on first screen
-      return tl;
+      //TimeLine.staggerFromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "+=.5") // animate only buttons on first screen
+      returnTimeLine;
     },
     step5: function () { // animate apperance of clients
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step5',
         ease: Power2.easeOut
       });
-      tl.add("hideTitle", "=+1")
-      tl.add(function () {
+     TimeLine.add("hideTitle", "=+1")
+     TimeLine.add(function () {
         currentStep = 4;
         scrollDetector.removeActiveNav();
         sideNavButton[3].classList.add('active');
       })
-      tl.set("#works .typing-we-keep", { 'display': 'block' }, "hideTitle+=1")
-      tl.to('#works .pretitle', .4, { alpha: 0 }, "hideTitle") // works animate title dissapear
-      tl.to('#works .title', .4, { alpha: 0 }, "hideTitle") // works animate title dissapear
-      tl.to('#works .subtitle', .4, { alpha: 0 }, "hideTitle")  // works animate title dissapear
-      tl.to('#works .btn-group .btn', .2, { alpha: 0 }, "hideTitle") // animate only buttons on first screen
-      // tl.staggerFromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "+=.5") // animate only buttons on first screen
-      // tl.add(function () { companyText.animate(); })
-      tl.fromTo('#horizontal-works-clients', playSpeed * 2, { x: '0%' }, { x: '-50%' }) // scroll horizontaly to clients section
-      tl.to('#side-navigation', .6, { fill: '#939598', stroke: '#939598', color: "#939598" }, "-=.3") // change navigation color
+     TimeLine.set("#works .typing-we-keep", { 'display': 'block' }, "hideTitle+=1")
+     TimeLine.to('#works .pretitle', .4, { alpha: 0 }, "hideTitle") // works animate title dissapear
+     TimeLine.to('#works .title', .4, { alpha: 0 }, "hideTitle") // works animate title dissapear
+     TimeLine.to('#works .subtitle', .4, { alpha: 0 }, "hideTitle")  // works animate title dissapear
+     TimeLine.to('#works .btn-group .btn', .2, { alpha: 0 }, "hideTitle") // animate only buttons on first screen
+      //TimeLine.staggerFromTo('#works .btn-group .btn', .2, { alpha: 0, y: 20 }, { alpha: 1, y: 0 }, "+=.5") // animate only buttons on first screen
+      //TimeLine.add(function () { companyText.animate(); })
+     TimeLine.fromTo('#horizontal-works-clients', playSpeed * 2, { x: '0%' }, { x: '-50%' }) // scroll horizontaly to clients section
+     TimeLine.to('#side-navigation', .6, { fill: '#939598', stroke: '#939598', color: "#939598" }, "-=.3") // change navigation color
       //
-      tl.fromTo("#clients .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }, { alpha: 1 }) // animate title backgroun
-      tl.add(function () {
+     TimeLine.fromTo("#clients .gradient-title_cont-bg .line-bg", .2, { alpha: 0 }, { alpha: 1 }) // animate title backgroun
+     TimeLine.add(function () {
         currentStep = 5;
         scrollDetector.removeActiveNav();
         sideNavButton[4].classList.add('active');
       })
-      tl.add("show-clients")
-      tl.staggerFromTo("#clients .gradient-title_cont-bg .line-bg", .3, { x: -100 }, { x: 0 }, "show-clients") // animate title backgroun
-      tl.fromTo("#clients .gradient-title_cont", .4, { alpha: 0 }, { alpha: 1 }, "show-clients") // animate title text
-      tl.staggerFromTo('#clients .client', .5, { alpha: 0, x: -10 }, { alpha: 1, x: 0 }, .01, "show-clients") // animate appearence of clients
-      // tl.fromTo("#clients .clients_bg", .6, { scale: 1.2 }, { scale: 1 }, "-=.2") // animate background image
-      tl.add(function () {
+     TimeLine.add("show-clients")
+     TimeLine.staggerFromTo("#clients .gradient-title_cont-bg .line-bg", .3, { x: -100 }, { x: 0 }, "show-clients") // animate title backgroun
+     TimeLine.fromTo("#clients .gradient-title_cont", .4, { alpha: 0 }, { alpha: 1 }, "show-clients") // animate title text
+     TimeLine.staggerFromTo('#clients .client', .5, { alpha: 0, x: -10 }, { alpha: 1, x: 0 }, .01, "show-clients") // animate appearence of clients
+      //TimeLine.fromTo("#clients .clients_bg", .6, { scale: 1.2 }, { scale: 1 }, "-=.2") // animate background image
+     TimeLine.add(function () {
         scrollDetector.removeActiveNav();
         sideNavButton[4].classList.add('active');
       })
-      return tl;
+      returnTimeLine;
     },
     step6: function () { // animate apperance of team
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step6',
         ease: Power2.easeOut
       });
-      tl.to(scrollBody, playSpeed, { yPercent: -60 })
-      tl.add(function () {
+     TimeLine.to(scrollBody, playSpeed, { yPercent: -60 })
+     TimeLine.add(function () {
         currentStep = 5;
         scrollDetector.removeActiveNav();
         sideNavButton[4].classList.add('active');
       })
-      tl.add("team") // team animation label
-      tl.add(function () {
+     TimeLine.add("team") // team animation label
+     TimeLine.add(function () {
         currentStep = 6;
         scrollDetector.removeActiveNav();
         sideNavButton[5].classList.add('active');
       })
-      tl.add(function () {
+     TimeLine.add(function () {
         $("#burger,#call-us").toggleClass('grey');
       }, "team")
-      tl.from('#team .team-grid', .6, { y: 50 }, "team") // slide up team members
-      tl.staggerFromTo('#team .title .text-line .letter', .1, { backgroundColor: '#f3f3f3' }, { backgroundColor: 'transparent' }, .01, "team") // animate title
-      tl.fromTo('#team .team_txt', .6, { alpha: 0 }, { alpha: 1 }, "-=.2") // animate text
-      tl.fromTo('#team .btn', .6, { alpha: 0 }, { alpha: 1 }, "-=.2") // animate button
-      tl.staggerFromTo('#team .team-item', .2, { alpha: 0 }, { alpha: 1 }, 0.15, "team") // animate team members
-      tl.set('.team-hover-cont', { 'display': 'block' }) // turn on hover zone
-      return tl;
+     TimeLine.from('#team .team-grid', .6, { y: 50 }, "team") // slide up team members
+     TimeLine.staggerFromTo('#team .title .text-line .letter', .1, { backgroundColor: '#f3f3f3' }, { backgroundColor: 'transparent' }, .01, "team") 
+     TimeLine.fromTo('#team .team_txt', .6, { alpha: 0 }, { alpha: 1 }, "-=.2") // animate text
+     TimeLine.fromTo('#team .btn', .6, { alpha: 0 }, { alpha: 1 }, "-=.2") // animate button
+     TimeLine.staggerFromTo('#team .team-item', .2, { alpha: 0 }, { alpha: 1 }, 0.15, "team") // animate team members
+     TimeLine.set('.team-hover-cont', { 'display': 'block' }) // turn on hover zone
+      returnTimeLine;
     },
     step7: function () { // animate apperance of contact us
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step7',
         ease: Power2.easeOut
       });
-      // tl.add(function () { currentStep = 6; })
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 6;
         scrollDetector.removeActiveNav();
         sideNavButton[5].classList.add('active');
       })
-      tl.to(scrollBody, playSpeed, { yPercent: -80 }) // scroll down page to contact us section
-      tl.add(function () {
+     TimeLine.to(scrollBody, playSpeed, { yPercent: -80 }) // scroll down page to contact us section
+     TimeLine.add(function () {
         $("#burger,#call-us").toggleClass('grey');
       })
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 7;
         scrollDetector.removeActiveNav();
         sideNavButton[6].classList.add('active');
       })
-      tl.to('#side-navigation', .6, { fill: '#fff', stroke: '#fff', color: "#fff" }, "-=.3") // change navigation color
-      tl.staggerFromTo("#contact .contact_item h2", .3, { alpha: 0, y: -20 }, { alpha: 1, y: 0 }) // stagger animation title
-      tl.staggerFromTo("#contact .contact_item p", .3, { alpha: 0, y: -20 }, { alpha: 1, y: 0 }) // stagger animation text
-      tl.staggerFromTo("#contact .contact_item .btn", .3, { alpha: 0, y: -20 }, { alpha: 1, y: 0 }) // stagger animation button
-      // tl.add(function () {
-      //   scrollDetector.removeActiveNav();
-      //   sideNavButton[5].classList.add('active');
-      // })
-      return tl;
+     TimeLine.to('#side-navigation', .6, { fill: '#fff', stroke: '#fff', color: "#fff" }, "-=.3") // change navigation color
+     TimeLine.staggerFromTo("#contact .contact_item h2", .3, { alpha: 0, y: -20 }, { alpha: 1, y: 0 }) // stagger animation title
+     TimeLine.staggerFromTo("#contact .contact_item p", .3, { alpha: 0, y: -20 }, { alpha: 1, y: 0 }) // stagger animation text
+
+      returnTimeLine;
     },
     step8: function () { // animate apperance of footer
       let footerH = document.getElementsByClassName('main-footer')[0].clientHeight;
-      var tl = new TimelineMax({
+      varTimeLine = new TimelineMax({
         id: 'step8',
         ease: Power2.easeOut
       });
-      tl.add(function () {
+     TimeLine.add(function () {
         currentStep = 7;
         scrollDetector.removeActiveNav();
         sideNavButton[6].classList.add('active');
       })
-      tl.to(scrollBody, playSpeed, { yPercent: -85 }) // scroll down to footer
-      tl.to('#side-navigation', .6, { fill: 'transparent', stroke: 'transparent', color: "transparent" }, "-=.3") // change navigation color
-      tl.set('#side-navigation', { "display": 'none' }) // change navigation color
-      // tl.to(scrollBody, playSpeed, { yPercent: "(calc(-80% - " + resizeDeps.vars.footerHeight + "px))" }) // scroll down to footer
-      tl.fromTo('#call-us', .3, { alpha: 1 }, { alpha: 0 })
-      tl.set('#call-us', { y: 200 })
-      tl.add(function () {
+     TimeLine.to(scrollBody, playSpeed, { yPercent: -85 }) // scroll down to footer
+     TimeLine.to('#side-navigation', .6, { fill: 'transparent', stroke: 'transparent', color: "transparent" }, "-=.3") // change navigation color
+     TimeLine.set('#side-navigation', { "display": 'none' }) // change navigation color
+    TimeLine.fromTo('#call-us', .3, { alpha: 1 }, { alpha: 0 })
+     TimeLine.set('#call-us', { y: 200 })
+     TimeLine.add(function () {
         currentStep = 8;
       })
-      // tl.to(scrollBody, playSpeed, { 'transform': 'translateY(calc(-500vh - ' + resizeDeps.vars.footerHeight + 'px))' })
-      tl.staggerFromTo('.footer-col', .3, { x: -20, alpha: 0 }, { x: 0, alpha: 1 }, .1) // stagger footer items appearance
-      return tl;
+     TimeLine.staggerFromTo('.footer-col', .3, { x: -20, alpha: 0 }, { x: 0, alpha: 1 }, .1) // stagger footer items appearance
+      returnTimeLine;
     },
   },
   buildMasterTimeline: function (params) {
@@ -545,10 +538,6 @@ export let scrollDetector = {
       .add('step1-start')
       .add(this.animationSteps.step1())
       .add('step1-reverse')
-      // .add('to-horizont')
-      // .addPause('to-horizont', function (params) {
-      //   console.log('pause occurs')
-      // })
       .add(function () {
         isPlaying = false;
         this.masterTimeline.pause();
@@ -611,38 +600,16 @@ export let scrollDetector = {
       }
     }
   },
-  //
+
   srollEffect: function (delta) {
-    // let topPos = 0;
-    // let bottomPos = -500; //
-    // let power
-    //
-    if (delta > 0 && currentStep < 8) { // play forward , prevent after last step
+
+    if (delta > 0 && currentStep < 8) {
       this.masterTimeline.play().timeScale(1)
     }
     else if (delta < 0 && currentStep > 1) {
       this.masterTimeline.reverse().timeScale(1)
     }
     else { isPlaying = false }
-    //
-    // if (delta > 0) power = -100
-    // else power = 100
-    // this.yPos += power;
-
-    // if (this.yPos > topPos) {
-    //   this.yPos = topPos
-    // }
-    // else if (this.yPos < bottomPos) {
-    //   this.yPos = bottomPos
-    // };
-
-    // console.log('power ' + power)
-    // TweenMax.to(scrollBody, 1, {
-    //   'transform': 'translateY(' + this.yPos + 'vh)',
-    //   ease: Power2.easeInOut,
-    //   onComplete: function () {
-    //   }.bind(this)
-    // });
 
   },
   customScrollEvent: function () {
@@ -676,8 +643,6 @@ export let scrollDetector = {
     sideNav.addEventListener("click", function (e) {
       let target = e.target;
       let anchor = target.closest('circle')
-      // console.log(isPlaying + " isPlaying state on click")
-      // console.log(Boolean(anchor) == true && isPlaying == false)
       if (Boolean(anchor) == true && isPlaying == false) {
         let goTo = Number(anchor.dataset.goTo);
         console.log(currentStep + " currentStep on click start")
@@ -795,16 +760,13 @@ export let scrollDetector = {
     console.log(windowWidth + " windowWidth")
     if (windowWidth > mobileWidth) {
       console.log('not mobile')
-      // console.log(scrollDetector.masterTimeline)
       this.buildMasterTimeline();
     }
     else {
       console.log('mobile')
-      // console.log(scrollDetector.masterTimeline)
     }
   },
   init: function () {
-    // this.buildMasterTimeline();
     this.switchMechanic();
     this.customScrollEvent();
     this.sideNavigationEvent(); //
@@ -830,34 +792,14 @@ export let scrollDetector = {
     function reinitTimeline() {
       window.addEventListener('resize', function (params) {
         console.log(resizeDeps.vars.footerHeight + " footerHeight in px");
-        // scrollDetector.switchMechanic(); //TURN ON WHEN OK
-
         console.log(scrollDetector.masterTimeline)
-        // var restore = scrollDetector.masterTimeline.time();
-        // console.log(restore + " restore ")
 
-
-        // scrollDetector.masterTimeline.clear(); // clear
-        // console.log(scrollDetector.masterTimeline)
-        // scrollDetector.buildMasterTimeline()
-        // console.log(scrollDetector.masterTimeline)
-        // scrollDetector.masterTimeline.seek(restore);
-
-
-        // scrollDetector.masterTimeline.kill();
-        // scrollDetector.masterTimeline.invalidate().time(restore);
-        // scrollDetector.masterTimeline.restart().invalidate().time(restore);
       }.bind(this))
     }
     reinitTimeline();
 
     this.scrollAfterLoad();
-    // setInterval(function () {
-    //   console.group();
-    //   console.log('isPlaying  -  ' + isPlaying)
-    //   console.log('currentStep  -  ' + currentStep)
-    //   console.groupEnd();
-    // }.bind(this), 300);
+
   }
 }
 if (document.getElementsByClassName('home').length > 0) {
